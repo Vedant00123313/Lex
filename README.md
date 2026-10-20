@@ -13,22 +13,13 @@ Files
 cpp_lexer.l   Flex lexer source
 input.cpp     Sample C++ source to scan
 
-Install on Debian/Ubuntu
+Use the Dockerfile to create image
 ------------------------
-sudo apt update
-sudo apt install flex gcc
+docker build -t mylex:latest .
 
-Build
------
-flex cpp_lexer.l
-gcc lex.yy.c -o cpp_lexer
-
-Run
----
-./cpp_lexer input.cpp
-
-If your Flex installation requires explicit Flex library linking, use:
-gcc lex.yy.c -o cpp_lexer -lfl
+Run Container
+------------------------
+docker run mylex:latest
 
 Expected checks
 ---------------

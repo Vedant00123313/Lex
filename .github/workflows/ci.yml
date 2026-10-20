@@ -1,0 +1,17 @@
+name: lex runner
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  output:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build image
+        run: docker build -t mylex:latest .
+
+      - name: run container
+        run: docker run --rm mylex:latest
